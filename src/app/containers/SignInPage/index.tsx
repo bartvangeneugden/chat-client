@@ -3,13 +3,15 @@ import { Helmet } from 'react-helmet-async';
 import Grid from '@material-ui/core/Grid';
 import { TextField, Button } from '@material-ui/core';
 import { useDispatch, useSelector } from 'react-redux';
-import { useInjectReducer } from 'utils/redux-injectors';
+import { useInjectReducer, useInjectSaga } from 'utils/redux-injectors';
 import { actions, sliceKey, reducer } from './slice';
 import { selectTempUsername, selectUsername } from './selectors';
+import { loginFormFromSaga } from './saga';
 
 export function SignInPage() {
   const dispatch = useDispatch();
   useInjectReducer({ key: sliceKey, reducer: reducer });
+  useInjectSaga({ key: sliceKey, saga: loginFormFromSaga });
 
   const loginUser = (event: React.FormEvent<HTMLFormElement>) => {
     dispatch(actions.loginUser());
