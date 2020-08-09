@@ -15,6 +15,7 @@ const userLoginSlice = createSlice({
       state.username = state.tempUsername;
       state.tempUsername = '';
     },
+    userLoggedIn() {},
     updateUsernameText(state, action: PayloadAction<string>) {
       state.tempUsername = action.payload;
     },

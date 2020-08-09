@@ -14,6 +14,7 @@ import { GlobalStyle } from 'styles/global-styles';
 
 import { HomePage } from './containers/HomePage/Loadable';
 import { SignInPage } from './containers/SignInPage/Loadable';
+import { ChatClient } from './containers/ChatClient/Loadable';
 import { NotFoundPage } from './components/NotFoundPage/Loadable';
 import { Container } from '@material-ui/core';
 
@@ -42,6 +43,7 @@ export function App() {
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route exact path="/signin" component={SignInPage} />
+          <Route exact path="/chat" component={ChatClient} />
           <Route component={NotFoundPage} />
         </Switch>
       </Container>
